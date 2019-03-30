@@ -1,10 +1,17 @@
 import React from 'react';
 
-const NoteList = (props) => (
-  <li>
-    <h2>Title</h2>
-    <p>Caption...</p>
-  </li>
-);
+const NoteItem = (props) => {
 
-export default NoteList;
+    let handleClickEvent = () => {
+        props.showClickedNote(props.note)
+    }
+
+    return (
+        <li onClick={handleClickEvent}>
+            <h2>{props.note.title}</h2>
+            <p>{props.note.body.slice(0, 16)}...</p>
+        </li>
+    );
+};
+
+export default NoteItem;
